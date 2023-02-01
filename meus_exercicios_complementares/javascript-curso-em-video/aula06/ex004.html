@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variavel</title>
+    <style>
+        body{
+            background-color: rgb(105, 105, 173);
+            color: white;
+            font: normal 20pt Arial;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        var nome = window.prompt('Qual é o seu nome?');
+
+        document.writeln(`Olá ${nome} o seu nome tem <strong>${nome.length}</strong> letras <br/>`);
+        document.writeln(`O seu nome em maiúsculo fica: <strong>${nome.toUpperCase()}</strong><br/>`);
+        document.writeln(`O seu nome em minúsculo fica: <strong>${nome.toLowerCase()}</strong>`);
+
+        /*
+            Maneiras de formatar numeros:
+                - n1.toFixed ->Para que sempre tenha 2 casas decimais
+                - n1.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) ->Deixa o número formatado em dinheiro BRL           
+        */
+    </script>
+
+</body>
+</html>                  

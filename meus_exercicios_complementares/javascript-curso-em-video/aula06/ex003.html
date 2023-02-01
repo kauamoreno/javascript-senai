@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variavel</title>
+    <style>
+        body{
+            background-color: rgb(105, 105, 173);
+            color: white;
+            font: normal 20pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá Mundo</h1>
+    <p>Já me livrei da maldição</p>
+
+    <script>
+        //window.prompt() recebe uma String
+        /*
+            Maneiras de converter String em numeros:
+                - Number.parseInt(n)
+                - Number.parseFloat(n)
+                - Number(n) ->Serve para o programa decidir qual o tipo do dado
+
+            Maneiras de converter numeros em Strings:
+                - String(n)
+                - n.toString()
+
+            Maneiras de formatar Strings:
+                - s.length ->Quantos caracteres a String tem
+                - s.toUpperCase() ->Muda tudo para "MAIÚSCULAS" 
+                - s.toLowerCase() ->Muda tudo para "minuscúlas"  
+        */
+
+        var numero1 = Number(window.prompt('Digite um número'));
+        var numero2 = Number(window.prompt('Digite mais um número'));
+        var soma = numero1 + numero2;
+        
+        window.alert(`A soma dos valores é de ${soma}`);
+    </script>
+</body>
+</html>

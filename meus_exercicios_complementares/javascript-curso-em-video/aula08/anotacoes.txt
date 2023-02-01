@@ -1,0 +1,6 @@
+5 == 5 ->true
+5 == '5' ->true
+Isso acontece porque o sinal de igualdade não conta o tipo do dado
+
+=== ->Operador de igualdade restrita
+5 === '5' ->false
