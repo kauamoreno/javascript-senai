@@ -1,3 +1,4 @@
+
 //OUTROS TRECHOS DE CODIGO DURANTE A AULA
 
 alert("Olá Mundo!");
