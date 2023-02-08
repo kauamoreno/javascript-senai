@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            background-color: #0d47a1;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        nTabuada = prompt("Digite um número para a tabuada")
+        tamanhoTabuada = prompt("Digite o tamanho da tabuada")
+
+        var x = 0;
+        while (x < tamanhoTabuada){
+            var resultado = nTabuada * (x + 1);
+            document.body.innerHTML += `${nTabuada} * ${x + 1} = ${resultado} <br>`
+            x++;
+        }
+
+    </script>
+</body>
+
+</html>
