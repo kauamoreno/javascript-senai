@@ -4,33 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calc</title>
-
+    <title>Calculadora</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 24px;
             background-color: #0d47a1;
             color: white;
-        }
-        form{
             display: flex;
-            flex-direction: column;
+            justify-content: center;
         }
-
-        form input{
-            margin-top: 10px;
-            width: 70%;
-        }
-
-        button{
-            margin-top: 30px;
-            padding: 5px;
-            width: 300px;
-            margin: 1px solid black;
-            border-radius: 10px;
-        }
-
+        
         #dados{
             display: flex;
             flex-direction: column;
@@ -38,23 +22,12 @@
     </style>
 </head>
 <body>
-    <form action="">
-        <input type="number" placeholder="Valor Inicial" id="val-inicial">
-        <input type="number" placeholder="Valor deposito mensal" id="val-deposito-mes">
-        <input type="number" placeholder="Taxa de juros (% a.m)" id="taxa-juros-mes">
-
-        <button onclick="Calcular()">Calcular</button>
-    </form>
-
     <div id="inf">
         <div>
             <h1>Informações</h1>
             <div id="dados"></div>
         </div>
     </div>
-    
-
-
     <script src="calc.js"></script>
 </body>
 </html>
