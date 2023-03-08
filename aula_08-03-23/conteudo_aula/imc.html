@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+    <style>
+        main, #inf{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        body{
+            background-color: rgb(105, 105, 173);
+            color: white;
+            font: normal 20pt Arial;
+        }
+        input{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        #btn:hover{
+            transition: 0.5s;
+            background-color: blue;
+            color: white;
+        }
+        #inf{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Calculadora de IMC</h1>
+
+        <form action="">
+            <input type="number" min="1" placeholder="Altura" id="alt">
+            <input type="text" min="1" placeholder="Peso" id="peso">
+            <input type="button" value="Submit" onclick="calcular()" id="btn">
+        </form>
+
+        <div id="inf"></div>
+    </main>
+
+    <script>
+        function calcular() {
+            peso = document.getElementById("peso").value
+            altura = document.getElementById("alt").value
+
+            imc = peso / (altura * altura)
+            var status
+
+            if (imc < 18.5) {
+                status = 'Baixo Peso'
+            } else if (imc < 25 && imc >= 18.5) {
+                status = 'Peso Ideal'
+            } else if (imc < 30 && imc >= 25) {
+                status = 'Sobrepeso'
+            } else if (imc < 35 && imc >= 30) {
+                status = 'Obesidade 1'
+            } else if (imc < 40 && imc >= 35) {
+                status = 'Obesidade 2'
+            } else if (imc > 40) {
+                status = 'Obesidade grave'
+            }
+
+            document.getElementById("inf").innerHTML = `<h3>O seu IMC é de ${imc.toFixed(2)}</h3> <br> Status: ${status}`
+        }
+
+    </script>
+</body>
+
+</html>
