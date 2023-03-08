@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+
+    <h1>Calculadora</h1>
+    <form action="">
+        <h3>Forneça uma expressão matemática</h3>
+        <input type="text" name="expr" size="15">
+
+        <input type="button" value="Calcular" onclick="calcula(this.form)">
+        <input type="reset" value="Limpar">
+
+        <p>Resultado</p>
+        <input type="text" name="result" size="15">
+        <p id="res">Resultado Final: </p>
+    </form>
+    
+    <script>
+        function calcula(form){
+            if(confirm("Tem certeza?")){
+                form.result.value = eval(form.expr.value);
+                document.getElementById('res').innerHTML = `Resultado Final: ${eval(form.expr.value)}`
+            }else{
+                alert("Tente novamente")
+            }
+        }
+    </script>
+
+</body>
+</html>
