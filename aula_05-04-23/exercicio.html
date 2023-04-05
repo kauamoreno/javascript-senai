@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com JS</title>
+</head>
+<body>
+    <fieldset>
+        <h3>Defina o melhor estilo de pagina para você:</h3>
+        <button id="m_noite" onclick="f_noite()">Modo Noturno</button>
+        <button id="m_dia" onclick="f_dia()">Modo Dia</button>
+        <span>|</span>
+        <label for="">Escolha o tamanho da fonte:</label>
+        <button id="pequeno" onclick="f_pequeno()">-</button>
+        <button id="medio" onclick="f_medio()">Normal</button>
+        <button id="grande" onclick="f_grande()">+</button>
+    </fieldset>
+
+    <p>1-Qual a sua faixa etaria</p>
+    <button id="bebe">0 a 5 anos</button>
+    <button id="crianca" onclick="f_crianca()">6 a 12 anos</button>
+    <button id="adolescente" onclick="f_adolescente()">13 a 17 anos</button>
+    <button id="jovem" onclick="f_jovem()">18 a 24 anos</button>
+    <button id="adulto" onclick="f_adulto()">25 a 35 anos</button>
+    <button id="maduro" onclick="f_maduro()">36 a 59 anos</button>
+    <button id="vivido" onclick="f_vivido()">acima de 60</button>
+
+    <div id="idade"></div>
+
+    <p>2-Você é :</p>
+    <input type="radio" name="sexo" id="homem" value="Masculino">
+    <label for="">Homem</label>
+
+    <input type="radio" name="sexo" id="mulher" value="Feminino">
+    <label for="">Mulher</label>
+    
+    <input type="radio" name="sexo" id="outro" value="Outro">
+    <label for="">Outro</label>
+    <br><br>
+    <button id="btnResposta2">Confirmar resposta 2</button>
+
+    <hr>
+    <div id="div_sexo"></div>
+    <hr>
+
+    <p>O presente que você irá ganhar sera:</p>
+    <hr>
+    <button id="presente" onclick="f_presente()">Resgatar Presente</button>
+    <hr>
+
+    <script src="script.js"></script>
+</body>
+</html>

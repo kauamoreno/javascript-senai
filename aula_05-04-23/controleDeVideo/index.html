@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Video</title>
+</head>
+
+<body style="background-color: black">
+    <input type="button" value="240px x 135px" onclick="changeSize(240,135)">
+    &nbsp;&nbsp;
+    <input type="button" value="480px x 270px" onclick="changeSize(480,270)">
+    &nbsp;&nbsp;
+    <input type="button" value="720px x 485px" onclick="changeSize(720,405)"> <br><br>
+    <button id="play_pause" onclick="play_pause()"
+        style="background-color:darkblue; color: white; border-style:solid; border-width:1px; border-color: white; border-radius: 5px; font-size:11pt; font-family:Arial">
+        &nbsp;PLAY&nbsp;
+    </button>
+    <br>
+    <video id="video1" width="480" height="270"> <!--controls-->
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+    </video>
+    <br><br>
+    <input type="button" value="Show info" onclick="showInfo()">
+    <br><br><!-- Div em que aparece as informações do vídeo-->
+    <div id="divi" style="color:cyan; font-family: Arial; font-size: 11pt"> </div>
+
+    <script>
+
+        // Redimensionamento
+        var changeSize = (w, h) => {
+            var vid = document.getElementById("video1");
+            vid.width = W;
+            vid.height = h;
+        }
+        // PLAY e PAUSE
+        var play_pause = () => {
+            var vid = document.getElementById("video1");
+            var but = document.getElementById("play_pause");
+            if (vid.paused) {
+                vid.play();
+                but.innerHTML = "&nbsp;PAUSE&nbsp;";
+            } else {
+                vid.pause();
+                but.innerHTML = "&nbsp;PLAY&nbsp;";
+            }
+        }
+
+        //Informações
+        var init = () => {
+            var vid = document.getElementById('video1')
+            vid.oncanplay = () => showInfo('oncanplay')
+            vid.oncanpause = () => showInfo('oncanpause')
+            vid.onplay = () => showInfo('onplay')
+            vid.onended = () => showInfo('onended')
+            vid.ontimeupdate = () => showInfo('ontimeupdate')
+            vid.onvolumechange = () => showInfo('onvolumechange')
+        }
+
+        var showInfo = (event) => {
+            var vid = document.getElementById('video1')
+            var div = document.getElementById('div1')
+            div.innerHTML = "Source: " + vid.currentSrc + "<br>"
+            + "Duration: " + formatTime(vid.duration) + "<br>"
+            + "Position: " + formatTime(vid.currentTime) + "<br>"
+        }
+    </script>
+</body>
+
+</html>
