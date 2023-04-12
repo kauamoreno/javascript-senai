@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signos do Zodíaco</title>
+</head>
+
+<body>
+
+    <form onsubmit="event.preventDefault(); exibir()">
+        <input type="date" id="data" required> <br><br>
+        <input type="submit" value="Exibir" id="botao">
+    </form>
+    <br><br>
+
+    <img src="./imagens/signos.jpg" alt="signo" id="signo">
+    <p id="resposta"></p>
+
+    <script>
+        
+
+        var sDatas = [["01-01", "01-19", "CAPRICÓRNIO", "capricornio.png"],
+        ["01-21", "02-18", "AQUÁRIO", "aquario.png"],
+        ["02-19", "03-20", "PEIXES", "peixes.png"],
+        ["03-21", "04-19", "ARIES", "aries.png"],
+        ["04-21", "05-20", "TOURO", "touro.png"],
+        ["05-21", "06-20", "GÊMEOS", "gemeos.png"],
+        ["06-21", "07-22", "CÂNCER", "cancer.png"],
+        ["07-23", "08-22", "LEÃO", "leao.png"],
+        ["08-23", "09-22", "VIRGEM", "virgem.png"],
+        ["09-23", "10-22", "LIBRA", "libra.png"],
+        ["10-23", "11-21", "ESCORPIÃO", "escorpiao.png"],
+        ["11-22", "12-21", "SAGITÁRIO", "sagitario.png"],
+        ["12-22", "12-31", "CAPRICÓRNIO", "Capricórnio.png"]];
+
+        var lLimpar = false;
+
+        function exibir() {
+            if(lLimpar = !lLimpar){
+                // Pega a data digitada
+                var dataDig = document.querySelector('#data').value
+
+                // Converter para data
+                var data = new Date(dataDig);
+
+                // Separa o dia, mês e ano
+                var dia = data.getDate()+1;
+                var mes = data.getMonth()+1;
+                var ano = data.getYear()
+                var dataVetor;
+
+                // Cria a data para comparação
+                var novaData = new Date(mes+'-'+dia+'-'+ano);
+
+                // Percorrer o vetor comparando as datas
+                for(let i = 0; i < sDatas.length; i++){
+
+                    // Junta o ano com a data do vetor para comparação completa
+                    dataVetor = sDatas[i][0]+'-'+ano;
+                    dataSig1 = new Date(dataVetor);
+                    dataVetor = sDatas[i][1]+'-'+ano;
+                    dataSig2 = new Date(dataVetor);
+
+                    // Faz a comparação
+                    if(novaData >= dataSig1 && novaData <= dataSig2){
+                        document.querySelector('#resposta').innerHTML = sDatas[i][2];
+                        document.querySelector('#signo').src = './imagens/'+sDatas[i][3]
+                        document.querySelector('#botao').value = 'Limpar'
+                        document.querySelector('#data').disable = true 
+                    }
+                }
+            }else{
+                document.getElementById("resposta").innerHTML="";
+                document.querySelector("#signo").src="./imagens/signos.jpg";
+                document.getElementById("botao").value = "EXIBIR";
+                document.getElementById("data").value = "";
+                document.getElementById("data").disabled = false;
+            }
+        }
+    </script>
+</body>
+
+</html>
