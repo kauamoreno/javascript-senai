@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage </title>
+</head>
+<body>
+    Chave:
+    <input type="text" id="txtChave">
+    Valor:
+    <input type="text" id="txtValor">
+    <hr>
+    <button id="btnAdicionar" onclick="adicionar()">Adicionar Item</button>
+    <button id="btnLer" onclick="Ler()">Ler Valor</button>
+    <button id="btnRemover" onclick="remover()">Remover item</button>
+    <button id="btnLimpar" onclick="limpar()">Limpar Todos</button>
+
+    <script>
+        function adicionar(){
+            localStorage.setItem(txtChave.value, txtValor.value);
+            alert('Item adicionado');
+            txtChave.value = txtValor.value = '';
+        }
+
+        function Ler(){
+            let chave = localStorage.getItem(txtChave.value);
+            if(chave != null){
+                alert(chave);
+            }else{
+                alert('O item procurado não existe');
+            }
+        }
+
+        function remover(){
+            localStorage.removeItem(txtChave.value);
+            alert('Item removido');
+        }
+
+        function limpar(){
+            localStorage.clear()
+            alert('Items removidos');
+        }
+    </script>
+   
+    
+</body>
+</html>
