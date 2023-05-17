@@ -26,6 +26,19 @@
     <p id="exemplo4"></p>
     <hr><br>
 
+
+    <!-- EXEMPLO 5 -->
+    <h2>Métodos</h2>
+    <p>Neste exemplo <b>this</b> representa o objeto <b>local</b>.</p>
+    <p>O objeto local é o "dono" dos atributos.</p>
+    <p id="exemplo5"></p>
+    <hr><br>
+
+
+    <!-- EXEMPLO 6 -->
+    <h2>Métodos CONSTRUTORES:</h2>
+    <p id="exemplo6"></p>
+
     <script>
         //EXEMPLO 1
         function Aluno() {
@@ -71,7 +84,7 @@
         };
 
         document.getElementById("exemplo2").innerHTML = person.firstName +
-        " tem " + person.age + " anos de idade.";
+            " tem " + person.age + " anos de idade.";
 
 
         //EXEMPLO 3 - Mudança em uma cópia de objeto, afetam diretamente o objeto original
@@ -85,17 +98,45 @@
         x.Idade = 10;
 
         document.getElementById("exemplo3").innerHTML = pessoa.primeiroNome +
-        " tem " + pessoa.Idade + " anos de idade.";
+            " tem " + pessoa.Idade + " anos de idade.";
 
-        
+
         //EXEMPLO 4 -Percorrendo as propriedades de um objeto:
-        var txt="";
-        var humano ={fName: "Ben",lName: "Zoe", ages: 17,};
+        var txt = "";
+        var humano = { fName: "Ben", lName: "Zoe", ages: 17, };
         var y;
-        for(y in humano){
-            txt += humano[y]+ " ";
+        for (y in humano) {
+            txt += humano[y] + " ";
         }
-        document.getElementById("exemplo4").innerHTML= txt;
+        document.getElementById("exemplo4").innerHTML = txt;
+
+
+        //EXEMPLO 5 - Métodos
+        var person2 = {
+            firstName2: "Bily",
+            lastName2: "Gaytes",
+            id: 5566,
+            fullName: function () {
+                return this.firstName2 + " " + this.lastName2;
+            }
+        };
+        document.getElementById("exemplo5").innerHTML = person2.fullName();
+
+
+        //EXEMPLO 6 - Métodos Contrutores
+        //metodo construtor
+        function Person3(first, last, age, eye) {
+            this.firstName3 = first;
+            this.lastName3 = last;
+            this.age3 = age;
+            this.eyeColor3 = eye;
+        }
+        //criando um objeto
+        var myFather = new Person3("Zé", "Silva", 49, "verde");
+        //exibindo a idade
+        document.getElementById("exemplo6").innerHTML = "Meu pai tem "
+            + myFather.age3 + " anos.";
+
     </script>
 </body>
 
