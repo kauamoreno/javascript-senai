@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO</title>
+</head>
+<body>
+    
+    <h2>Criando um objeto Javascript</h2>
+    <p id="exemplo2"></p>
+    <hr><br>
+
+    <script>
+        //EXEMPLO 1
+        function Aluno(){
+            var nome;
+            var idade;
+            var curso;
+
+
+            this.setNome = function (vNome){nome=vNome;}
+            this.setIdade = function (vIdade){idade=vIdade;}
+            this.setCurso = function (vCurso){curso=vCurso;}
+
+
+            this.getNome = function (){return nome;}
+            this.getIdade = function (){return idade;}
+            this.getCurso = function (){return curso;}
+
+
+            this.mostraDados = function(){
+                alert("Nome do aluno: " + this.getNome()+ "\n Idade: "+ this.getIdade()+"\n Curso: "+this.getCurso());
+            }
+        }
+
+        var Aluno1 = new Aluno();
+        Aluno1.setNome("Henrique");
+        Aluno1.setIdade("25");
+        Aluno1.setCurso("Introdução à Programação orientada a objetos em Javascript");
+        Aluno1.mostraDados();
+
+        var Aluna1 = new Aluno();
+        Aluna1.setNome("Carla");
+        Aluna1.setIdade("23");
+        Aluna1.setCurso("Introdução à Programação orientada a gambiarra");
+        Aluna1.mostraDados();
+
+
+        //EXEMPLO 2
+        var person ={
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+
+        document.getElementById("exemplo2").innerHTML= person.firstName+ 
+        " tem " + person.age + " anos de idade.";
+
+    </script>
+</body>
+</html>
