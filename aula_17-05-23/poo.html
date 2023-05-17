@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POO</title>
 </head>
+
 <body>
-    
+
     <h2>Criando um objeto Javascript</h2>
     <p id="exemplo2"></p>
     <hr><br>
 
+
+    <!-- EXEMPLO 3 -->
+    <h2>Mudança em uma cópia de objeto, afetam diretamente o objeto original</h2>
+    <p id="exemplo3"></p>
+    <hr><br>
+
+
+    <!-- EXEMPLO 4 -->
+    <h2>Percorrendo as propriedades de um objeto:</h2>
+    <p id="exemplo4"></p>
+    <hr><br>
+
     <script>
         //EXEMPLO 1
-        function Aluno(){
+        function Aluno() {
             var nome;
             var idade;
             var curso;
 
 
-            this.setNome = function (vNome){nome=vNome;}
-            this.setIdade = function (vIdade){idade=vIdade;}
-            this.setCurso = function (vCurso){curso=vCurso;}
+            this.setNome = function (vNome) { nome = vNome; }
+            this.setIdade = function (vIdade) { idade = vIdade; }
+            this.setCurso = function (vCurso) { curso = vCurso; }
 
 
-            this.getNome = function (){return nome;}
-            this.getIdade = function (){return idade;}
-            this.getCurso = function (){return curso;}
+            this.getNome = function () { return nome; }
+            this.getIdade = function () { return idade; }
+            this.getCurso = function () { return curso; }
 
 
-            this.mostraDados = function(){
-                alert("Nome do aluno: " + this.getNome()+ "\n Idade: "+ this.getIdade()+"\n Curso: "+this.getCurso());
+            this.mostraDados = function () {
+                alert("Nome do aluno: " + this.getNome() + "\n Idade: " + this.getIdade() + "\n Curso: " + this.getCurso());
             }
         }
 
@@ -49,16 +63,40 @@
 
 
         //EXEMPLO 2
-        var person ={
+        var person = {
             firstName: "John",
             lastName: "Doe",
             age: 50,
             eyeColor: "blue"
         };
 
-        document.getElementById("exemplo2").innerHTML= person.firstName+ 
+        document.getElementById("exemplo2").innerHTML = person.firstName +
         " tem " + person.age + " anos de idade.";
 
+
+        //EXEMPLO 3 - Mudança em uma cópia de objeto, afetam diretamente o objeto original
+        var pessoa = new Object();
+        pessoa.primeiroNome = "Jó";
+        pessoa.ultimoNome = "Noé";
+        pessoa.Idade = 67;
+        pessoa.corOlhos = "castanhos"
+
+        var x = pessoa;
+        x.Idade = 10;
+
+        document.getElementById("exemplo3").innerHTML = pessoa.primeiroNome +
+        " tem " + pessoa.Idade + " anos de idade.";
+
+        
+        //EXEMPLO 4 -Percorrendo as propriedades de um objeto:
+        var txt="";
+        var humano ={fName: "Ben",lName: "Zoe", ages: 17,};
+        var y;
+        for(y in humano){
+            txt += humano[y]+ " ";
+        }
+        document.getElementById("exemplo4").innerHTML= txt;
     </script>
 </body>
+
 </html>
