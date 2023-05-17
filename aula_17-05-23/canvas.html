@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+
+    <style>
+        #tela{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="tela" height="500" width="500">
+        O seu navegador não suporta canvas do HTML5
+    </canvas>
+
+    <script>
+        let tela = document.querySelector('#tela');
+        let ctx = tela.getContext('2d');
+
+        function desenhalinha(inicioX, inicioY, fimX, fimY, cor){
+            ctx.beginPath();
+            ctx.lineWidth = '15';
+            ctx.strokeStyle = cor;
+            ctx.moveTo(inicioX,inicioY);
+            ctx.lineTo(fimX,fimY);
+            ctx.stroke();
+        }
+
+        function escreveTexto(texto, cordenadaX, cordenadaY, font, cor){
+            ctx.lineWidth = '1';
+            ctx.strokeStyle = cor ? cor : 'black'
+            ctx.font = font ? font : '30px Arial';
+            ctx.fillText(texto, cordenadaX, cordenadaY);
+        }
+
+        function criarGradiente(inicioX, inicioY, finalX, finalY, cor1, cor2){
+            let gradiente = ctx.createLinearGradient(inicioX, inicioY, finalX, finalY);
+            gradiente.addColorStop(0, cor1);
+            gradiente.addColorStop(1, cor2);
+            ctx.fillStyle = gradiente;
+            ctx.fillRect(0, 0, tela.width, tela.height);
+        }
+
+        function criarCirculo(cordenadaX, cordenadaY, raio, cor){
+            ctx.beginPath();
+            ctx.lineWidth = '2';
+            ctx.strokeStyle = cor ? cor : 'black'
+            ctx.arc(cordenadaX, cordenadaY, raio, 0, 2* Math.PI);
+            ctx.stroke();
+        }
+
+        //criarGradiente(10, 100, 200, 80, 'red', 'white');
+        desenhalinha(0,75, 250,75,'green');
+        desenhalinha(50,0, 150,130,'purple');
+        escreveTexto("Hello World", 300, 250);
+        criarCirculo(100, 75, 50, 'blue');
+        
+    </script>
+</body>
+</html>
