@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculos Matemáticos</title>
+
+    <style>
+        .valor,
+        .numero {
+            height: 50px;
+            width: 150px;
+            float: left;
+            border: 2px solid #666666;
+            background-color: #ccc;
+            margin-right: 5px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 3px #000;
+            text-align: center;
+        }
+
+        .op {
+            height: 50px;
+            width: 50px;
+            float: left;
+            border: 2px solid #666666;
+            background-color: #ccc;
+            margin-right: 5px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 3px #000;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="colunas">
+        <div id="pri" class="valor" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="seg" class="op" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="ter" class="valor" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="qua" class="op">
+            <h1>=</h1>
+        </div>
+        <div id="qui" class="valor" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <br><br><br><br><br><br><br>
+
+    <div id="teclado">
+        <div id="numeros">
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>0</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>1</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>2</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>3</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>4</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>5</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>6</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>7</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>8</h1>
+            </div>
+            <div class="numero" draggable="true" ondragstart="drag(event)">
+                <h1>9</h1>
+            </div>
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <div id="operacao">
+            <div class="op" draggable="true" ondragstart="drag(event)">
+                <h1>+</h1>
+            </div>
+            <div class="op" draggable="true" ondragstart="drag(event)">
+                <h1>-</h1>
+            </div>
+            <div class="op" draggable="true" ondragstart="drag(event)">
+                <h1>*</h1>
+            </div>
+            <div class="op" draggable="true" ondragstart="drag(event)">
+                <h1>/</h1>
+            </div>
+            <div class="op" draggable="true" ondragstart="drag(event)">
+                <h1>%</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function drag(ev) {
+            ev.dataTransfer.setData('text', ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData('text');
+            var elementoArrastado = document.getElementById(data);
+        }
+
+
+    </script>
+</body>
+
+</html>
